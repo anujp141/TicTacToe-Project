@@ -1,6 +1,3 @@
-// JavaScript (script.js)
-
-// Initialize the game state
 let squares = Array(9).fill(null); // Represents the game board
 let xIsNext = true; // Track the current player (X or O)
 let winner = null; // Track the winner (X, O, or null for a draw)
