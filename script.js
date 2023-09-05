@@ -1,3 +1,6 @@
+// JavaScript (script.js)
+
+// Initialize the game state
 let squares = Array(9).fill(null); // Represents the game board
 let xIsNext = true; // Track the current player (X or O)
 let winner = null; // Track the winner (X, O, or null for a draw)
@@ -19,8 +22,12 @@ function handleClick(index) {
         document.getElementById('game-status').textContent = `Next player: ${xIsNext ? 'X' : 'O'}`;
     }
 
-    // Update the square's text content
-    document.getElementsByClassName('square')[index].textContent = squares[index];
+    // Update the square's text content with X or O
+    const squareElement = document.getElementsByClassName('square')[index];
+    squareElement.textContent = squares[index];
+
+    // Add a class to style the X and O inside the square
+    squareElement.classList.add('marked');
 }
 
 // Function to check for a winner
