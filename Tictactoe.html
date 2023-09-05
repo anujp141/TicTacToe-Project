@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe Game</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom CSS -->
+    <style>
+        /* Add your CSS styles here */
+        /* ... */
+    </style>
 </head>
 <body>
     <header>
@@ -33,8 +36,32 @@
         <p class="footer-text">© 2023 Your Name</p>
     </footer>
 
-    <button id="reset-button" class="btn btn-primary">Reset Game</button> 
+    <button id="reset-button" class="btn btn-primary">Reset Game</button> <!-- Reset button -->
     
-    <script src="script.js"></script> <!-- Include your JavaScript here -->
+    <script>
+        // JavaScript code
+        // ...
+
+        // Place the JavaScript code provided previously here.
+        // ...
+
+        // Attach click event handlers to each square
+        const squareElements = document.getElementsByClassName('square');
+        for (let i = 0; i < squareElements.length; i++) {
+            squareElements[i].addEventListener('click', () => handleClick(i));
+        }
+
+        // Reset button (optional)
+        document.getElementById('reset-button').addEventListener('click', () => {
+            squares = Array(9).fill(null);
+            xIsNext = true;
+            winner = null;
+            document.getElementById('game-status').textContent = `Next player: X`;
+            for (const square of squareElements) {
+                square.textContent = '';
+                square.classList.remove('winning-square');
+            }
+        });
+    </script>
 </body>
 </html>
