@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe Game</title>
     <style>
-        /* styles.css */
+   /* styles.css */
 
 body {
     background-color: #f7f7f7;
@@ -40,7 +40,7 @@ body {
     font-weight: bold;
     text-align: center;
     cursor: pointer;
-    padding: 20px 0;
+    padding: 60px 0; /* Increase padding for each square */
     transition: background-color 0.2s, color 0.2s;
 }
 
@@ -106,13 +106,14 @@ body {
     </main>
 
     <footer>
-        <p class="footer-text">© 2023 Your Name</p>
+        <p class="footer-text">Thank you for playing
+        </p>
     </footer>
 
     <button id="reset-button" class="btn btn-primary">Reset Game</button> <!-- Reset button -->
     
     <script>
-        let squares = Array(9).fill(null); // Represents the game board
+let squares = Array(9).fill(null); // Represents the game board
 let xIsNext = true; // Track the current player (X or O)
 let winner = null; // Track the winner (X, O, or null for a draw)
 
@@ -133,8 +134,9 @@ function handleClick(index) {
         document.getElementById('game-status').textContent = `Next player: ${xIsNext ? 'X' : 'O'}`;
     }
 
-    // Update the square's text content
-    document.getElementsByClassName('square')[index].textContent = squares[index];
+    const squareElement = document.getElementsByClassName('square')[index];
+    squareElement.textContent = squares[index];
+    squareElement.classList.add('marked');
 }
 
 // Function to check for a winner
@@ -183,7 +185,6 @@ for (let i = 0; i < squareElements.length; i++) {
     squareElements[i].addEventListener('click', () => handleClick(i));
 }
 
-// Reset button (optional)
 document.getElementById('reset-button').addEventListener('click', () => {
     squares = Array(9).fill(null);
     xIsNext = true;
@@ -194,23 +195,6 @@ document.getElementById('reset-button').addEventListener('click', () => {
         square.classList.remove('winning-square');
     }
 });
-
-        const squareElements = document.getElementsByClassName('square');
-        for (let i = 0; i < squareElements.length; i++) {
-            squareElements[i].addEventListener('click', () => handleClick(i));
-        }
-
-        // Reset button (optional)
-        document.getElementById('reset-button').addEventListener('click', () => {
-            squares = Array(9).fill(null);
-            xIsNext = true;
-            winner = null;
-            document.getElementById('game-status').textContent = `Next player: X`;
-            for (const square of squareElements) {
-                square.textContent = '';
-                square.classList.remove('winning-square');
-            }
-        });
     </script>
 </body>
 </html>
