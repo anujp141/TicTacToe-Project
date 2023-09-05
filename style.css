@@ -1,0 +1,54 @@
+/* styles.css */
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tic-tac-toe-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.square {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    padding: 20px 0;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.square:hover {
+    background-color: #eee;
+}
+
+/* Style for X and O */
+.square.X {
+    color: #ff5722; /* Orange color for X */
+}
+
+.square.O {
+    color: #2196F3; /* Blue color for O */
+}
+
+/* Style for game status display */
+#game-status {
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2196F3; /* Blue background color */
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
