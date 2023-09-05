@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe Game</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom CSS -->
 </head>
 <body>
     <header>
         <h1 class="game-title">Tic-Tac-Toe</h1>
     </header>
-<script></script>
+
     <main>
         <div class="game-container">
             <div class="game-board">
@@ -25,74 +25,16 @@
                 <div class="square" data-cell="7"></div>
                 <div class="square" data-cell="8"></div>
             </div>
-            <div id="game-status" class="game-status">Start the game!
-            </div>
+            <div id="game-status" class="game-status">Player X's turn</div>
         </div>
     </main>
 
     <footer>
-        <p class="footer-text"> Thank you for playing! </p>
+        <p class="footer-text">© 2023 Your Name</p>
     </footer>
-    <script src="script.js">
-        let squares = Array(9).fill(null);
-let xIsNext = true; 
-let winner = null; 
 
-// Function to handle square click events
-function handleClick(index) {
-    if (winner || squares[index]) return; // Ignore if the game is won or the square is already filled
-    squares[index] = xIsNext ? 'X' : 'O'; // Set the square to X or O
-    xIsNext = !xIsNext; // Toggle the current player
-
-    // Check for a winner or a draw
-    winner = calculateWinner();
-    if (winner) {
-        document.getElementById('game-status').textContent = `Winner: ${winner}`;
-    } else if (!squares.includes(null)) {
-        document.getElementById('game-status').textContent = "It's a draw!";
-    } else {
-        document.getElementById('game-status').textContent = `Next player: ${xIsNext ? 'X' : 'O'}`;
-    }
-
-    // Update the square's text content
-    document.getElementsByClassName('square')[index].textContent = squares[index];
-}
-
-// Function to check for a winner
-function calculateWinner() {
-    const winningCombos = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-        [0, 4, 8], [2, 4, 6] // Diagonals
-    ];
-
-    for (const combo of winningCombos) {
-        const [a, b, c] = combo;
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a]; // Return the winning player (X or O)
-        }
-    }
-
-    return null; // No winner yet
-}
-
-// Attach click event handlers to each square
-const squareElements = document.getElementsByClassName('square');
-for (let i = 0; i < squareElements.length; i++) {
-    squareElements[i].addEventListener('click', () => handleClick(i));
-}
-
-// Reset button (optional)
-document.getElementById('reset-button').addEventListener('click', () => {
-    squares = Array(9).fill(null);
-    xIsNext = true;
-    winner = null;
-    document.getElementById('game-status').textContent = `Next player: X`;
-    for (const square of squareElements) {
-        square.textContent = '';
-    }
-});
-    </script>
     <button id="reset-button" class="btn btn-primary">Reset Game</button> 
+    
+    <script src="script.js"></script> <!-- Include your JavaScript here -->
 </body>
 </html>
